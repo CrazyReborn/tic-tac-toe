@@ -6,18 +6,19 @@
     </head>
     <body>
         <h1>TIC-TAC-TOE</h1>
-        <div>
-            <input type="radio" name="player" id="playerOne">
-            <label for="playerOne">Player One</label>
-            <input type="radio" name="player" id="playerTwo">
-            <label for="playerTwo">Player Two</label>
-        </div>
-        <div>
+        <form>
             <label for='player-one-name'>Player One(X) Name</label>
             <input id='player-one-name' type='text'><br>
             <label for='player-two-name'>Player Two(O) Name</label>
             <input id='player-two-name' type='text'>
+            <input id='submit-button' type="submit" value="Submit">
+        </form>
+        <div id='display'>
+            <p></p>
         </div>
         <div class="gameboard"></div>
+        <div id='new'>
+            <button>Reset</button>
+        </div>
     </body>
 </html>    

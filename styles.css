@@ -11,3 +11,19 @@
 input {
     margin: 10px;
 }
+
+#display {
+    height: 60px;
+    width: 248px;
+    border: 2px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    height: 60px;
+    width: 248px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: none;
+}

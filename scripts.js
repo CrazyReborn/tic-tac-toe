@@ -35,10 +35,10 @@ let activePlayer = 'X';
 
 const gameController = (() => {
     function turn() {
-        if (activePlayer = 'X') {
+        if (activePlayer == 'X') {
             activePlayer = 'O';
         }
-        else if (activePlayer = 'O') {
+        else {
             activePlayer = 'X';
         }
     };
@@ -125,9 +125,8 @@ const gameController = (() => {
             e.addEventListener('click', function() {
                 if (activePlayer && !e.getAttribute('data-changed', true)) {
                     e.firstElementChild.textContent = activePlayer;
-                    gameBoard.gameBoardContent.splice(e.getAttribute('data-element'), 1, e.firstElementChild.textContent);
                     e.setAttribute('data-changed', true);
-                    turn(); 
+                    gameBoard.gameBoardContent.splice(e.getAttribute('data-element'), 1, e.firstElementChild.textContent);
                 } else if (e.getAttribute('data-changed', true)) {
                     alert("STOP! YOU VIOLATED THE LAW!");
                 }

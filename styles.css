@@ -3,7 +3,11 @@
     grid-template-columns: 84px 84px 84px;
     grid-template-rows: 84px 84px 84px;
     font-size: 36px;
+    margin-top: 5px;
 }
 .gameboard div {
     border: 2px solid;
+}
+input {
+    margin: 10px;
 }

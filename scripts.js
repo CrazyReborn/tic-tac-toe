@@ -43,83 +43,21 @@ const gameController = (() => {
         }
     };
     function checkWin() {
-        if ((!gameBoard.gameBoardContent[0] == '') && gameBoard.gameBoardContent[0] == gameBoard.gameBoardContent[1] &&
-        gameBoard.gameBoardContent[1] == gameBoard.gameBoardContent[2]) {
-            alert('WinOne');
-            gameBoard.clear();
-            renderBoard.clearBoard();
-            renderBoard.newBoard();
-            addListeners();
-            return true;
+        const winCombo = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [0,4,6]]
+        for (let i = 0; i < 7; i++) {
+            const combo = winCombo[i];
+            let one = gameBoard.gameBoardContent[combo[0]];
+            let two = gameBoard.gameBoardContent[combo[1]];
+            let three = gameBoard.gameBoardContent[combo[2]];
+            if ((one === '') || (two === '') || (three === '')) {
+                continue;
+            }
+            else if (one == two && one == three) {
+                alert('WIN!');
+                break;
+            }
         }
-        else if ((!gameBoard.gameBoardContent[3] == '') && gameBoard.gameBoardContent[3] == gameBoard.gameBoardContent[4] &&
-        gameBoard.gameBoardContent[3] == gameBoard.gameBoardContent[5]) {
-            alert('WinTwo');
-            gameBoard.clear();
-            renderBoard.clearBoard();
-            renderBoard.newBoard();
-            addListeners();
-            return true;
-        }
-        else if ((!gameBoard.gameBoardContent[6] == '') && gameBoard.gameBoardContent[6] == gameBoard.gameBoardContent[7] &&
-        gameBoard.gameBoardContent[6] == gameBoard.gameBoardContent[8]) {
-            alert('WinThree');
-            gameBoard.clear();
-            renderBoard.clearBoard();
-            renderBoard.newBoard();
-            addListeners();
-            return true;
-        }
-        else if ((!gameBoard.gameBoardContent[0] == '') && gameBoard.gameBoardContent[0] == gameBoard.gameBoardContent[3] &&
-        gameBoard.gameBoardContent[3] == gameBoard.gameBoardContent[6]) {
-            alert('WinFour');
-            gameBoard.clear();
-            renderBoard.clearBoard();
-            renderBoard.newBoard();
-            addListeners();
-            return true;
-        }
-        else if ((!gameBoard.gameBoardContent[1] == '') && gameBoard.gameBoardContent[1] == gameBoard.gameBoardContent[4] &&
-        gameBoard.gameBoardContent[1] == gameBoard.gameBoardContent[7]) {
-            alert('WinFive');
-            gameBoard.clear();
-            renderBoard.clearBoard();
-            renderBoard.newBoard();
-            addListeners();
-            return true;
-        }
-        else if ((!gameBoard.gameBoardContent[2] == '') && gameBoard.gameBoardContent[2] == gameBoard.gameBoardContent[5] &&
-        gameBoard.gameBoardContent[2] == gameBoard.gameBoardContent[8]) {
-            alert('WinSix');
-            return true;
-        }
-        else if ((!gameBoard.gameBoardContent[0] == '') && gameBoard.gameBoardContent[0] == gameBoard.gameBoardContent[4] &&
-        gameBoard.gameBoardContent[0] == gameBoard.gameBoardContent[8]) {
-            alert('WinSeven');
-            gameBoard.clear();
-            renderBoard.clearBoard();
-            renderBoard.newBoard();
-            addListeners();
-            return true;
-        }
-        else if ((!gameBoard.gameBoardContent[2] == '') && gameBoard.gameBoardContent[2] == gameBoard.gameBoardContent[4] &&
-        gameBoard.gameBoardContent[4] == gameBoard.gameBoardContent[6]) {
-            alert('WinEight');
-            gameBoard.clear();
-            renderBoard.clearBoard();
-            renderBoard.newBoard();
-            addListeners();
-            return true;
-        }
-        else if (!gameBoard.gameBoardContent.includes('')) {
-            alert('TIE!');
-            gameBoard.clear();
-            renderBoard.clearBoard();
-            renderBoard.newBoard();
-            addListeners();
-            return true;
-        }
-        };
+    };
     function addListeners() {
         document.querySelectorAll('#cell').forEach(e => {
             e.addEventListener('click', function() {

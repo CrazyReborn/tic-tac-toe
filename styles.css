@@ -1,33 +1,51 @@
 .gameboard {
     display: grid;
-    grid-template-columns: 84px 84px 84px;
-    grid-template-rows: 84px 84px 84px;
+    grid-template-columns: repeat(3, 124px);
+    grid-template-rows: repeat(3, 124px);
     font-size: 36px;
-    margin-top: 5px;
+    justify-content: center;
 }
 .gameboard div {
     border: 2px solid;
+    background-color: #264653;
+    color: #2a9d8f;
+}
+
+form {
+    font-size: 24px;
 }
 input {
     margin: 10px;
+    font-size: 24px;
 }
 
 #display {
-    height: 60px;
-    width: 248px;
+    margin: auto;
+    font-size: 32px;
+    text-align: center;
+    height: 120px;
+    width: 368px;
     border: 2px solid black;
     margin-top: 10px;
     margin-bottom: 10px;
+    background-color: #88dbdf;
 }
 
 #clear {
     height: 60px;
-    width: 248px;
+    width: 370px;
     margin-top: 10px;
     margin-bottom: 10px;
     display: none;
+    font-size: 24px;
 }
 
 #start {
     display: inline;
+    font-size: 24px;
+}
+
+body {
+    text-align: center;
+    background-color: #caf0f8;
 }

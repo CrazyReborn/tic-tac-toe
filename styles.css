@@ -40,9 +40,21 @@ input {
     font-size: 24px;
 }
 
-#start {
+#start{
     display: inline;
     font-size: 24px;
+}
+
+#change-buttons {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    flex-direction: space-between;
+    gap: 10px;
+}
+
+#change-pvp, #change-pve {
+    font-size: 22px;
 }
 
 body {

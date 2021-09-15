@@ -117,6 +117,5 @@ const gameController = (() => {
             };
             addListeners();
         });
-            
         return {playerOne, playerTwo};
 })();

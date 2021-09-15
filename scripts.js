@@ -33,19 +33,45 @@ const playerFactory = (name, key) => {
     return {name, key};
 };
 
+const changeMode = (() => {
+    let gameMode = '';
+    
+    return {gameMode};
+})();
+
 const gameController = (() => {
+
     const playerOne = playerFactory('name', 'X');
     const playerTwo = playerFactory('name', 'O');
 
     let winStatus = false;
+
+    const modeIsPvp = document.querySelector('#change-pvp');
+    const modeIsPve = document.querySelector('#change-pve');
+    modeIsPvp.addEventListener('click', e=> {
+        if (changeMode.gameMode != 'pvp') {
+        changeMode.gameMode = 'pvp';
+        e.target.style.backgroundColor = '#3ef699';
+        modeIsPve.style.backgroundColor = '';
+        }
+    });
+    modeIsPve.addEventListener('click', e=> {
+        if (changeMode.gameMode != 'pve') {
+            changeMode.gameMode = 'pve';
+            e.target.style.backgroundColor = '#3ef699';
+            modeIsPvp.style.backgroundColor = '';
+            }
+    });
 
     document.querySelector('#submit-button').addEventListener('click', e => {
         playerOne.name = document.querySelector('#player-one-name').value;
         playerTwo.name = document.querySelector('#player-two-name').value;
         e.preventDefault();
     });
-
-    let activePlayer = playerOne;
+    document.querySelector('#start').addEventListener('click', e => {
+    
+        if (changeMode.gameMode == 'pvp') {
+            let activePlayer = playerOne;
             function turn() {
                 if (activePlayer == playerOne) {
                     activePlayer = playerTwo;
@@ -55,7 +81,7 @@ const gameController = (() => {
                 }
             };
 
-    document.querySelector('#start').addEventListener('click', e => {
+    
         updateDisplay();
 
             const buttonReset = document.querySelector('#clear');
@@ -116,6 +142,7 @@ const gameController = (() => {
                     });
             };
             addListeners();
-        });
+        };
+    });
         return {playerOne, playerTwo};
 })();

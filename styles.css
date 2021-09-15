@@ -55,6 +55,7 @@ input {
 
 #change-pvp, #change-pve {
     font-size: 22px;
+    border-radius: 5px;
 }
 
 body {
